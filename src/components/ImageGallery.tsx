@@ -1,49 +1,11 @@
-import React, { useState } from "react";
+
 import useFirestore from "../hooks/useFirestore";
-import useStorage from "../hooks/useStorage";
+
 
 const ImageGallery = () => {
-  const { docs: images, isLoading } = useFirestore("images");
-  const { startUpload, progress, error } = useStorage();
+  const { docs: images } = useFirestore("images");
+ 
   console.log(images);
-
-  const [dragging, setDragging] = useState(false);
-
-  const handleDragEnter = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragging(true);
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragging(true);
-  };
-
-  const handleDragLeave = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragging(false);
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragging(false);
-
-    const files = e.dataTransfer.files;
-
-    if (files.length > 0) {
-      // Assuming only one file is dropped at a time
-      const file = files[0];
-      startUpload(file);
-    }
-  };
-
-  if (isLoading) {
-    return (
-      <div className="text-center mt-10">
-        <progress className="progress w-56"> </progress>
-      </div>
-    );
-  }
 
   return (
     <div

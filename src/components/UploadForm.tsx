@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useStorage from "../hooks/useStorage";
 
 const UploadForm = () => {
-  const { startUpload, progress } = useStorage();
+  const { startUpload } = useStorage();
 
   const [dragging, setDragging] = useState(false);
   const [uploading, setUploading] = useState(false);

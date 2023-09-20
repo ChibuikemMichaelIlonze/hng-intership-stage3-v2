@@ -75,11 +75,11 @@ const DraggableImage = ({
           <img
             src={image.imageUrl}
             alt={image.imageUrl}
-            className="object-cover w-[100%] h-[80%] rounded-2xl"
+            className="object-cover w-[100%] h-full rounded-2xl"
           />
         )}
 
-        <div className="card-body ">
+        <div className="card-body absolute bottom-0 text-zinc-600">
           <span className="font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">
             {" "}
             {image.userEmail}

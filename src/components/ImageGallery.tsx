@@ -65,7 +65,7 @@ const DraggableImage = ({
     <div ref={(node) => ref(drop(node))}>
       <div
         key={image.imageUrl}
-        className="card h-[28rem] card-compact w-full bg-base-100 shadow-xl p-1"
+        className="card h-[23rem] card-compact w-full bg-base-100 shadow-xl p-1"
       >
         {isLoading ? (
           <div className="w-full h-[80%] flex justify-center items-center">
@@ -79,8 +79,8 @@ const DraggableImage = ({
           />
         )}
 
-        <div className="card-body absolute bottom-0 text-zinc-600">
-          <span className="font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">
+        <div className="card-body absolute bottom-0 text-zinc-600 font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">
+          <span className="font-bold w-40 whitespace-nowrap overflow-hidden overflow-ellipsis">
             {" "}
             {image.userEmail}
           </span>

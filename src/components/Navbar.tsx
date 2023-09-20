@@ -17,7 +17,7 @@ const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
   };
   return (
     <div>
-      <div className="navbar bg-base-100 justify-between  px-3 sm:px-7 md:px-10 lg:px-15">
+      <div className="navbar bg-base-100 justify-between  px-4 sm:px-7 md:px-10 lg:px-15">
         <div>
           <a className="btn btn-ghost normal-case text-2xl"> Gallery</a>
         </div>

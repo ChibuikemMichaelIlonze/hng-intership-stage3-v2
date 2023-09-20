@@ -21,8 +21,8 @@ const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
         <div>
           <a className="btn btn-ghost normal-case text-2xl"> Gallery</a>
         </div>
-        <div className=" gap-2">
-          <div className="form-control w-[8rem]  sm:w-[15rem] md:w-[25rem] text-end">
+        <div className=" gap-2 ">
+          <div className="form-control w-[8rem]   sm:w-[15rem] md:w-[25rem] text-end">
             <input
               type="text"
               placeholder="Search by email or date"
@@ -31,7 +31,7 @@ const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
               className="input input-bordered  "
             />
           </div>
-          <div className="pl-4">
+          <div className="pl-4 ">
             <label tabIndex={0}>
               <div>
                 <button

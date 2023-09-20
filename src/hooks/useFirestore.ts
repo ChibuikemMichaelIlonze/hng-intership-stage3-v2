@@ -8,7 +8,6 @@ type Image = {
   createdAt: Date;
   userEmail: string;
   imageUrl: string;
-  
 };
 const useFirestore = (collectionName: string) => {
   const [docs, setDocs] = useState<Image[]>([]);

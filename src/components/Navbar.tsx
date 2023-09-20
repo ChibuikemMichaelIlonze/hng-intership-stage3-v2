@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
-import React from "react"; // Import useState
+import React from "react";
 
 type NavbarProps = {
   searchQuery: string;
@@ -17,7 +17,6 @@ const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
   };
   return (
     <div>
-      
       <div className="navbar bg-base-100   px-3 sm:px-7 md:px-10 lg:px-15">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-2xl"> Gallery</a>
@@ -28,17 +27,21 @@ const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
               type="text"
               placeholder="Search by email or date"
               value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="input input-bordered  "
             />
           </div>
           <div className="pl-4">
-            <label tabIndex={0} >
+            <label tabIndex={0}>
               <div>
-                <button onClick={handleLogout} className="border-2 border-zinc-600 p-2 rounded-md">Logout</button>
+                <button
+                  onClick={handleLogout}
+                  className="border-2 border-zinc-600 p-2 rounded-md"
+                >
+                  Logout
+                </button>
               </div>
             </label>
-         
           </div>
         </div>
       </div>

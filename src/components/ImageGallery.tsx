@@ -13,12 +13,12 @@ const formatTime = (timestamp: number) => {
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const ampm = hours >= 12 ? "PM" : "AM";
-  const formattedHours = hours % 12 || 12; // Convert to 12-hour format
+  const formattedHours = hours % 12 || 12; 
   const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
   return `${formattedHours}:${formattedMinutes} ${ampm}`;
 };
 
-// Define the Image type here
+
 type Image = {
   createdAt: Date;
   userEmail: string;
@@ -50,13 +50,13 @@ const DraggableImage = ({
 
   const [isLoading, setIsLoading] = useState(true);
 
-  // Use a useEffect hook to handle image loading
+  
   useEffect(() => {
     const imgElement = new Image();
     imgElement.src = image.imageUrl;
 
     imgElement.onload = () => {
-      // Image has loaded successfully
+      
       setIsLoading(false);
     };
   }, [image.imageUrl]);
@@ -65,7 +65,7 @@ const DraggableImage = ({
     <div ref={(node) => ref(drop(node))}>
       <div
         key={image.imageUrl}
-        className="card h-96 card-compact w-full bg-base-100 shadow-xl p-1"
+        className="card h-[28rem] card-compact w-full bg-base-100 shadow-xl p-1"
       >
         {isLoading ? (
           <div className="w-full h-[80%] flex justify-center items-center">
@@ -104,21 +104,21 @@ const ImageGallery = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
-    // Reset uploading state when component mounts
+    
     setUploading(false);
   }, []);
 
   useEffect(() => {
-    // Use a timeout to reset uploading after 10 seconds
-    let timeout: NodeJS.Timeout; // Specify the type explicitly
+  
+    let timeout: NodeJS.Timeout; 
 
     if (uploading) {
       timeout = setTimeout(() => {
         setUploading(false);
-      }, 3000); // 10 seconds
+      }, 3000); 
     }
 
-    // Clean up the timeout if uploading changes before the timeout completes
+   
     return () => {
       clearTimeout(timeout);
     };
@@ -136,7 +136,7 @@ const ImageGallery = () => {
   const handleDragEnter = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setUploading(false); // Reset uploading state
+    setUploading(false); 
   };
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -156,20 +156,20 @@ const ImageGallery = () => {
     const files = e.dataTransfer.files;
 
     if (files.length > 0) {
-      setUploading(true); // Set to true when uploading starts
+      setUploading(true); 
       startUpload(files[0]);
     }
   };
 
-  // Add a function to move images
+
   const moveImage = (fromIndex: number, toIndex: number) => {
     const updatedImages = [...images];
     const [movedImage] = updatedImages.splice(fromIndex, 1);
     updatedImages.splice(toIndex, 0, movedImage);
-    // No need to update 'images' state here, it's handled internally
+   
   };
 
-  // Function to filter images based on search query
+
   const filterImages = (query: string) => {
     const lowerCaseQuery = query.toLowerCase();
     return images.filter(
@@ -195,7 +195,7 @@ const ImageGallery = () => {
         <div className="py-5 px-3 sm:px-7 md:px-10 lg:px-15 pb-24 pt-20">
           {uploading ? (
             <div className="h-24 flex justify-center items-center">
-              {/* Use getInputProps to render the file input */}
+             
               <input {...getInputProps()} />
               <span className="loading loading-bars loading-xs"></span>
               <span className="loading loading-bars loading-sm"></span>

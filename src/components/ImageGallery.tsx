@@ -48,17 +48,30 @@ const DraggableImage = ({
     },
   });
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Handle the image loading completion
+  
+
   return (
     <div ref={(node) => ref(drop(node))}>
       <div
         key={image.imageUrl}
         className="card h-96 card-compact w-full bg-base-100 shadow-xl p-1"
       >
-        <img
-          src={image.imageUrl}
-          alt="Shoes"
-          className="object-cover w-[100%] h-[80%] rounded-2xl"
-        />
+        
+        {isLoading ? (
+          <div className="w-full h-[80%] flex justify-center items-center">
+            <span className="loading loading-dots loading-lg"></span>
+          </div>
+        ) : (
+          <img
+            src={image.imageUrl}
+            alt={image.imageUrl}
+            className="object-cover w-[100%] h-[80%] rounded-2xl"
+            onLoad={() => setIsLoading(false)} // Set the onLoad event handler
+          />
+        )}
 
         <div className="card-body ">
           <span className="font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">
@@ -185,7 +198,9 @@ const ImageGallery = () => {
             </div>
           ) : (
             <div className="h-24 flex justify-center items-center">
-              <p className="font-extrabold text-2xl ">Drag and Drop anywhere to upload</p>
+              <p className="font-extrabold text-2xl text-center">
+                Drag and Drop anywhere to upload
+              </p>
             </div>
           )}
 

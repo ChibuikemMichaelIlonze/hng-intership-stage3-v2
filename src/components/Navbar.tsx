@@ -1,8 +1,13 @@
-
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
+import React from "react"; // Import useState
 
-const Navbar = () => {
+type NavbarProps = {
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -11,11 +16,32 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="navbar bg-base-100 justify-between px-5">
-      <a className="btn btn-ghost normal-case text-xl font-bold underline">
-        Gallery
-      </a>
-      <button onClick={handleLogout}>Logout</button>
+    <div>
+      
+      <div className="navbar bg-base-100   px-3 sm:px-7 md:px-10 lg:px-15">
+        <div className="flex-1">
+          <a className="btn btn-ghost normal-case text-2xl"> Gallery</a>
+        </div>
+        <div className="flex-none gap-2">
+          <div className="form-control sm:w-[15rem] md:w-[25rem] text-end">
+            <input
+              type="text"
+              placeholder="Search by email or date created"
+              value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+              className="input input-bordered  "
+            />
+          </div>
+          <div className="pl-4">
+            <label tabIndex={0} >
+              <div>
+                <button onClick={handleLogout} className="border-2 border-zinc-600 p-2 rounded-md">Logout</button>
+              </div>
+            </label>
+         
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

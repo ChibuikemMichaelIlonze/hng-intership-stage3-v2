@@ -23,7 +23,7 @@ const Navbar = ({ searchQuery, setSearchQuery }: NavbarProps) => {
           <a className="btn btn-ghost normal-case text-2xl"> Gallery</a>
         </div>
         <div className="flex-none gap-2">
-          <div className="form-control w-[5rem] sm:w-[15rem] md:w-[25rem] text-end">
+          <div className="form-control w-[10rem] sm:w-[15rem] md:w-[25rem] text-end">
             <input
               type="text"
               placeholder="Search by email or date"

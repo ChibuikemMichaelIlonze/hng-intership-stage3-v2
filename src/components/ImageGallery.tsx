@@ -50,8 +50,16 @@ const DraggableImage = ({
 
   const [isLoading, setIsLoading] = useState(true);
 
-  // Handle the image loading completion
-  
+  // Use a useEffect hook to handle image loading
+  useEffect(() => {
+    const imgElement = new Image();
+    imgElement.src = image.imageUrl;
+
+    imgElement.onload = () => {
+      // Image has loaded successfully
+      setIsLoading(false);
+    };
+  }, [image.imageUrl]);
 
   return (
     <div ref={(node) => ref(drop(node))}>
@@ -59,7 +67,6 @@ const DraggableImage = ({
         key={image.imageUrl}
         className="card h-96 card-compact w-full bg-base-100 shadow-xl p-1"
       >
-        
         {isLoading ? (
           <div className="w-full h-[80%] flex justify-center items-center">
             <span className="loading loading-dots loading-lg"></span>
@@ -69,7 +76,6 @@ const DraggableImage = ({
             src={image.imageUrl}
             alt={image.imageUrl}
             className="object-cover w-[100%] h-[80%] rounded-2xl"
-            onLoad={() => setIsLoading(false)} // Set the onLoad event handler
           />
         )}
 

@@ -13,6 +13,10 @@ const SortableList: React.FC = () => {
     "6.jpeg",
     "7.jpeg",
     "8.jpg",
+    "9.jpeg",
+    "10.jpeg",
+    "11.jpeg",
+    "12.jpeg",
   ];
 
   const tags = [
@@ -24,6 +28,10 @@ const SortableList: React.FC = () => {
     "river",
     "airplane",
     "skyscraper",
+    "phone",
+    "ball",
+    "house",
+    "school",
   ];
 
   const [imageOrder, setImageOrder] = useState<number[]>(
@@ -31,7 +39,9 @@ const SortableList: React.FC = () => {
   );
 
   const [dragItemIndex, setDragItemIndex] = useState<number | undefined>();
-  const [dragOverItemIndex, setDragOverItemIndex] = useState<number | undefined>();
+  const [dragOverItemIndex, setDragOverItemIndex] = useState<
+    number | undefined
+  >();
 
   const [searchInput, setSearchInput] = useState(""); // State for search input
   const [loading, setLoading] = useState(true); // Loading state
@@ -62,8 +72,7 @@ const SortableList: React.FC = () => {
     event.preventDefault();
   };
 
-  const handleDrop = (index: number) => {
-    // eslint-disable-next-line
+  const handleDrop = (_index: number) => {
     if (dragItemIndex !== undefined && dragOverItemIndex !== undefined) {
       const newOrder = [...imageOrder];
       const [draggedImage] = newOrder.splice(dragItemIndex, 1);
@@ -71,7 +80,6 @@ const SortableList: React.FC = () => {
       setImageOrder(newOrder);
     }
   };
-  
 
   const handleDragEnter = (index: number) => {
     setDragOverItemIndex(index);
@@ -86,7 +94,6 @@ const SortableList: React.FC = () => {
     setDragOverItemIndex(undefined);
   };
 
- 
   const handleLogout = async () => {
     try {
       await signOut(auth);
@@ -97,7 +104,6 @@ const SortableList: React.FC = () => {
     }
   };
 
- 
   const filteredImageOrder = imageOrder.filter((index) =>
     tags[index].toLowerCase().includes(searchInput.toLowerCase())
   );
@@ -106,7 +112,9 @@ const SortableList: React.FC = () => {
     <div>
       <div className="navbar bg-base-100 px-10 py-4">
         <div className="flex-1">
-          <a className="btn pl-0 sm:pl-[auto] btn-ghost normal-case text-xl">Image Gallery</a>
+          <a className="btn pl-0 sm:pl-[auto] btn-ghost normal-case text-xl">
+            Image Gallery
+          </a>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
@@ -119,7 +127,10 @@ const SortableList: React.FC = () => {
             />
           </div>
 
-          <div className="w-fit p-2 border-2 border-gray-400 rounded-md cursor-pointer" onClick={handleLogout}>
+          <div
+            className="w-fit p-2 border-2 border-gray-400 rounded-md cursor-pointer"
+            onClick={handleLogout}
+          >
             <p>Logout</p>
           </div>
         </div>
@@ -132,7 +143,10 @@ const SortableList: React.FC = () => {
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 justify-between gap-5 mt-10 px-6">
           {filteredImageOrder.map((index) => (
-            <div key={index} className="relative flex justify-center items-center">
+            <div
+              key={index}
+              className="relative flex justify-center items-center"
+            >
               <div className="absolute top-2 left-5 lg:left-10 bg-gray-800 text-white px-2 py-1 rounded ">
                 {tags[index]}
               </div>
@@ -147,7 +161,7 @@ const SortableList: React.FC = () => {
                 onDragEnter={() => handleDragEnter(index)}
                 onDragLeave={handleDragLeave}
                 onDragEnd={handleDragEnd}
-                onLoad={() => setLoading(false)} 
+                onLoad={() => setLoading(false)}
               />
             </div>
           ))}

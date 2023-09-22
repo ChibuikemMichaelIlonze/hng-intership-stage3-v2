@@ -1,9 +1,10 @@
-import ImageGallery from "../components/ImageGallery";
+import SortableList from "../components/SortableList";
+
 
 const Home = () => {
   return (
     <div className=" min-h-screen relative">
-      <ImageGallery />
+     <SortableList/>
     </div>
   );
 };

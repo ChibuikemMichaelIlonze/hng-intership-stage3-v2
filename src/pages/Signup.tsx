@@ -1,32 +1,44 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/config";
-import { useNavigate, Link } from "react-router-dom"; // Import Link
+import { useNavigate, Link } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
-  const [error, setError] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [successMessage, setSuccessMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await createUserWithEmailAndPassword(auth, email, password);
-      navigate("/");
+     
+      setError("");
+      setSuccessMessage("Signup successful! You can now log in.");
+     
+      setTimeout(() => {
+        setSuccessMessage("");
+        navigate("/");
+      }, 3000);
     } catch (error) {
+      
       setError(error.message);
+     
+      setSuccessMessage("");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {error && error}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center">
             <h1 className="text-5xl font-bold">Image Gallery</h1>
             <p className="py-6">Sign up to share your images</p>
+            {error && <div className="text-red-600">{error}</div>}
+            {successMessage && <div className="text-green-600">Successful!</div>}
           </div>
           <div className="card sm:w-[30rem] bg-base-100">
             <div className="card-body">
@@ -53,7 +65,7 @@ const Signup = () => {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   className="input input-bordered"
                 />

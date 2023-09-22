@@ -1,78 +1,66 @@
 Image Gallery App
-Welcome to the Image Gallery App! This application allows you to upload, view, and organize images effortlessly. This README will guide you through the installation, features, and deployment of the app, specifically on Vercel.
+A simple web application for managing and viewing an image gallery.
 
+Table of Contents
+About
+Getting Started
+Prerequisites
 Installation
-To run this app locally, follow these steps:
+Usage
+Contributing
+License
+Acknowledgments
+About
+The Image Gallery App is a web application that allows users to view and manage a collection of images. Users can drag and drop images to rearrange their order, search for images by tags, and log in or sign up to access their account.
 
+Getting Started
+Prerequisites
+Before you begin, ensure you have the following installed:
+
+Node.js and npm - Download & Install Node.js
+Firebase account - Firebase
+Installation
 Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/ChibuikemMichaelIlonze/hng-intership-stage3-v2
+git clone https://github.com/yourusername/image-gallery-app.git
+Navigate to the project directory:
+
+bash
+Copy code
 cd image-gallery-app
 Install dependencies:
 
 bash
 Copy code
 npm install
-Run the development server:
+Set up Firebase:
+
+Create a Firebase project on the Firebase Console.
+Set up Firebase Authentication and Realtime Database.
+Add your Firebase configuration to src/firebase/config.js.
+Start the development server:
 
 bash
 Copy code
-npm run dev
-Open your web browser and navigate to http://localhost:3000.
-
-Features
-Image Upload: Easily upload images by dragging and dropping or selecting files from your device.
-Image Organization: Organize images by dragging and dropping to rearrange them.
-Search Functionality: Quickly find images using the search bar.
-Image Details: View details like uploader's email, date, and time of upload.
-Responsive Design: Works seamlessly on various screen sizes and devices.
-Technology Stack
-This project is built with the following technologies:
-
-React for building the user interface.
-Vercel for hosting and deploying the application.
-Firebase (optional) for cloud storage and database (you can replace this with your own backend).
-Folder Structure
-Here's a brief overview of the project's folder structure:
-
-components/: React components used to build the app.
-hooks/: Custom React hooks.
-pages/: Next.js pages and routing.
-public/: Public assets like images and styles.
-styles/: Global CSS styles.
+npm start
 Usage
-Uploading Images: Drag and drop images onto the app or use the file picker to upload them.
-Reordering Images: Drag and drop images within the gallery to rearrange their order.
-Searching Images: Use the search bar to filter images based on email, date, or time.
-Viewing Image Details: Click on an image to view details like the uploader's email and upload time.
-Deployment on Vercel
-Follow these steps to deploy your Image Gallery App on Vercel:
-
-Create a Vercel Account: If you don't have one, sign up for a Vercel account.
-
-Install Vercel CLI:
-
-bash
-Copy code
-npm install -g vercel
-Log in to Vercel:
-
-bash
-Copy code
-vercel login
-Deploy the App:
-
-bash
-Copy code
-vercel
-Follow the prompts to set up your project and deploy it on Vercel.
-
+Access the Image Gallery App by opening it in a web browser.
+Log in or sign up to access your account.
+Browse and rearrange images by dragging and dropping them.
+Use the search feature to filter images by tags.
+Log out when you're done.
 Contributing
-If you'd like to contribute to this project, please follow our contributing guidelines.
+Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
 
+Fork the repository.
+Create a new branch for your feature or bug fix.
+Make your changes and commit them.
+Push your changes to your fork and submit a pull request to the original repository.
 License
-This project is open-source and available under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Enjoy using the Image Gallery App!
+Acknowledgments
+React - A JavaScript library for building user interfaces.
+Firebase - A comprehensive app development platform.

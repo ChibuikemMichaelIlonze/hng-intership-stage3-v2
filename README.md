@@ -25,7 +25,7 @@ Clone the repository:
 bash
 Copy code
 git clone https://github.com/ChibuikemMichaelIlonze/hng-intership-stage3-v2
-Navigate to the project directory:
+
 
 bash
 Copy code

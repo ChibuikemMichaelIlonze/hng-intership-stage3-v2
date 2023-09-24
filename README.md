@@ -1,5 +1,5 @@
 Image Gallery App
-A simple web application for managing and viewing an image gallery.
+A simple web application for managing, rearranging and viewing an image gallery.
 
 Table of Contents
 About

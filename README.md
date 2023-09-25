@@ -31,6 +31,8 @@ bash
 Copy code
 cd image-gallery-app
 Install dependencies:
+sortablejs 
+firebase 
 
 bash
 Copy code

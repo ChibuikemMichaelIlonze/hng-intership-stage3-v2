@@ -33,6 +33,7 @@ cd image-gallery-app
 Install dependencies:
 sortablejs 
 firebase 
+react-router-dom
 
 bash
 Copy code
